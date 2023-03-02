@@ -1,0 +1,42 @@
+{
+  "config": {
+    "chainId": 1730,
+    "homesteadBlock": 0,
+    "DAOForkBlock" : 0,
+    "DAOForkBlockSupport":true,
+    "eip150Block": 0,
+    "eip150Hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0,
+	"muirglacierBlock": 0,
+    "berlinBlock": 0,
+    "londonBlock": 0,
+	"arrowglacierBlock": 0,
+	"grayglacierBlock": 0,
+    "contractSizeLimit": 2147483647,
+	
+    "ethash": {}
+  },
+  "nonce": "0x0",
+  "timestamp": "0x631a7c64",
+  "extraData": "0x00000000000000000000000000000000000000000000000000000000000000006275696c6420627920626c616465706f6f6c",
+  "gasLimit": "0x800000000",
+  "difficulty": "0x1",
+  "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "alloc": {
+    "ec312eC990D20AB1862E726FeFbcDC5F9A421730": {
+      "balance": "0x84595161401484A000000"
+    }
+  },
+  "number": "0x0",
+  "gasUsed": "0x0",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "baseFeePerGas": "0x1"
+
+}
+
