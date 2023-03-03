@@ -25,8 +25,13 @@ defmodule Indexer.Fetcher.BlockReward do
 
   @behaviour BufferedTask
 
-  @default_max_batch_size 10
-  @default_max_concurrency 4
+  @defaults [
+    flush_interval: :timer.seconds(3),
+    max_batch_size: 10,
+    max_concurrency: 4,
+    task_supervisor: Indexer.Fetcher.BlockReward.TaskSupervisor,
+    metadata: [fetcher: :block_reward]
+  ]
 
   @doc """
   Asynchronously fetches block rewards for each `t:Explorer.Chain.Explorer.block_number/0`` in `block_numbers`.
@@ -52,7 +57,7 @@ defmodule Indexer.Fetcher.BlockReward do
     end
 
     merged_init_options =
-      defaults()
+      @defaults
       |> Keyword.merge(mergeable_init_options)
       |> Keyword.put(:state, state)
 
@@ -331,15 +336,5 @@ defmodule Indexer.Fetcher.BlockReward do
   defp fetched_beneficiary_error_to_iodata(%{code: code, message: message, data: %{block_quantity: block_quantity}})
        when is_integer(code) and is_binary(message) and is_binary(block_quantity) do
     ["@", quantity_to_integer(block_quantity), ": (", to_string(code), ") ", message, ?\n]
-  end
-
-  defp defaults do
-    [
-      flush_interval: :timer.seconds(3),
-      max_concurrency: Application.get_env(:indexer, __MODULE__)[:concurrency] || @default_max_concurrency,
-      max_batch_size: Application.get_env(:indexer, __MODULE__)[:batch_size] || @default_max_batch_size,
-      task_supervisor: Indexer.Fetcher.BlockReward.TaskSupervisor,
-      metadata: [fetcher: :block_reward]
-    ]
   end
 end

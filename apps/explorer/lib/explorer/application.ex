@@ -108,9 +108,7 @@ defmodule Explorer.Application do
       configure(Explorer.Validator.MetadataProcessor),
       configure(Explorer.Tags.AddressTag.Cataloger),
       configure(MinMissingBlockNumber),
-      configure(TokenTransferTokenIdMigration.Supervisor),
-      configure(Explorer.Chain.Fetcher.CheckBytecodeMatchingOnDemand),
-      configure(Explorer.Chain.Fetcher.FetchValidatorInfoOnDemand)
+      configure(TokenTransferTokenIdMigration.Supervisor)
     ]
     |> List.flatten()
   end

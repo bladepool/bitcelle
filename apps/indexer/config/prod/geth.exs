@@ -1,10 +1,13 @@
 import Config
 
-~w(config config_helper.exs)
-|> Path.join()
-|> Code.eval_file()
+hackney_opts_base = [pool: :ethereum_jsonrpc]
 
-hackney_opts = ConfigHelper.hackney_options()
+hackney_opts =
+  if System.get_env("ETHEREUM_JSONRPC_HTTP_INSECURE", "") == "true" do
+    [:insecure] ++ hackney_opts_base
+  else
+    hackney_opts_base
+  end
 
 config :indexer,
   block_interval: :timer.seconds(5),

@@ -1,38 +1,52 @@
-# BlockScout
+<h1 align="center">BlockScout</h1>
+<p align="center">Blockchain Explorer for inspecting and analyzing EVM Chains.</p>
+<div align="center">
 
-This is a tool for inspecting and analyzing the POA Network blockchain.
+[![Blockscout](https://github.com/blockscout/blockscout/workflows/Blockscout/badge.svg?branch=master)](https://github.com/blockscout/blockscout/actions)
+[![](https://dcbadge.vercel.app/api/server/blockscout?style=flat)](https://discord.gg/blockscout)
 
-## Machine Requirements
+</div>
 
-* Erlang/OTP 21+
-* Elixir 1.9+
-* Postgres 10.3
 
-## Required Accounts
+BlockScout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains. This includes the POA Network, Gnosis Chain, Ethereum Classic and other **Ethereum testnets, private networks and sidechains**.
 
-* Github for code storage
+See our [project documentation](https://docs.blockscout.com/) for detailed information and setup instructions.
 
-## Setup Instructions
+For questions, comments and feature requests see the [discussions section](https://github.com/blockscout/blockscout/discussions).
 
-### Development
+## About BlockScout
 
-To get BlockScout up and running locally:
+BlockScout is an Elixir application that allows users to search transactions, view accounts and balances, and verify smart contracts on the Ethereum network including all forks and sidechains.
 
-* Install dependencies with `$ mix do deps.get, local.rebar, deps.compile, compile`
-* Create and migrate your database with `$ mix ecto.create && mix ecto.migrate`
-* Run IEx (Interactive Elixir) to access the index and explore: `$ iex -S mix`
+Currently available full-featured block explorers (Etherscan, Etherchain, Blockchair) are closed systems which are not independently verifiable.  As Ethereum sidechains continue to proliferate in both private and public settings, transparent, open-source tools are needed to analyze and validate transactions.
 
-### Testing
+## Supported Projects
 
-* Format the Elixir code: `$ mix format`
-* Lint the Elixir code: `$ mix credo --strict`
-* Run the dialyzer: `mix dialyzer --halt-exit-status`
-* Check the Elixir code for vulnerabilities: `$ mix sobelow --config`
+BlockScout supports a number of projects. Hosted instances include POA Network, Gnosis Chain, Ethereum Classic, Sokol & Kovan testnets, and other EVM chains.
 
-### Benchmarking
+- [List of hosted mainnets, testnets, and additional chains using BlockScout](https://docs.blockscout.com/for-projects/supported-projects)
+- [Hosted instance versions](https://docs.blockscout.com/about/use-cases/hosted-blockscout)
 
-#### `Explorer.Chain.recent_collated_transactions/0`
+## Getting Started
 
-* Reset the test database: `MIX_ENV=test mix do ecto.drop, ecto.create, ecto.migrate`
-* Change `tag` in `benchmarks/explorer/chain/recent_collated_transactions.exs` to a new value, so that it will compare against the old values saved in `benchmarks/explorer/chain/recent_collated_transactions.benchee`
-* Run the benchmark: `MIX_ENV=test mix run benchmarks/explorer/chain/recent_collated_transactions.exs`
+See the [project documentation](https://docs.blockscout.com/) for instructions:
+
+- [Requirements](https://docs.blockscout.com/for-developers/information-and-settings/requirements)
+- [Ansible deployment](https://docs.blockscout.com/for-developers/ansible-deployment)
+- [Manual deployment](https://docs.blockscout.com/for-developers/manual-deployment)
+- [ENV variables](https://docs.blockscout.com/for-developers/information-and-settings/env-variables)
+- [Configuration options](https://docs.blockscout.com/for-developers/configuration-options)
+
+## Acknowledgements
+
+We would like to thank the [EthPrize foundation](http://ethprize.io/) for their funding support.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution and pull request protocol. We expect contributors to follow our [code of conduct](CODE_OF_CONDUCT.md) when submitting code or comments.
+
+## License
+
+[![License: GPL v3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
